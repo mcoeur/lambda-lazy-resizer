@@ -13,22 +13,18 @@ const WHITELIST = {
 };
 
 exports.handler = function(event, context, callback) {
-    const key = event.queryStringParameters.key;
+    const key = event.pathParameters.fileName;
 
-    if (!/^(\d+)?x?(\d+)\/[a-z0-9-]+\.[a-z]+$/.test(key)) {
-        return callback({
-            statusCode: '404',
-            message: 'Forbidden file',
-        });
-    }
+    if (!/^(\d+)?x?(\d+)\/[a-z0-9-]+\.[a-z]+$/.test(key))
+        return callback(null, {statusCode: '400', body: 'Forbidden file'});
 
     const [sizes, originalKey] = key.split('/');
     const format = originalKey.split('.').pop();
 
     if (WHITELIST.FORMATS.indexOf(format) === -1)
-        return callback({statusCode: '400', message: 'Forbidden format'});
+        return callback(null, {statusCode: '400', body: 'Forbidden format'});
     if (WHITELIST.SIZES.indexOf(sizes) === -1)
-        return callback({statusCode: '400', message: 'Forbidden size'});
+        return callback(null, {statusCode: '400', body: 'Forbidden size'});
 
     var width = null;
     var height = null;
@@ -61,5 +57,8 @@ exports.handler = function(event, context, callback) {
             body: '',
         })
     )
-    .catch(err => callback(err))
+    .catch(err => {
+	console.log('error :', JSON.stringify(err));
+        return callback(null, {statusCode: '500', body: 'Internal error'});
+    });
 };
