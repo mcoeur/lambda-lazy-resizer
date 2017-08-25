@@ -1,14 +1,17 @@
 'use strict';
 
+// Run this file to test the lambda function locally
+// Navigate to localhost:3000/:size/:fileName (eg. localhost:3000/800x600/cats.png)
+
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const { handler } = require('./index');
 
-app.get('/resize/:id', function (req, res) {
+app.get('/:size/:fileName', function (req, res) {
     const event = {
-        queryStringParameters : {
-            key: req.params.id.replace('_', '/')
+        pathParameters : {
+            fileName: req.params.size+'/'+req.params.fileName
         }
     };
     handler(event, {}, (err, data) => {
