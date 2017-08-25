@@ -8,7 +8,7 @@ Based on https://github.com/awslabs/serverless-image-resizing and modified to ac
 
 
 
-# Usage
+## Usage
 
 1. Upload the file `dist/lambda_function.zip` file to your lambda function
 2. Create the following environment variables :
@@ -22,6 +22,6 @@ Based on https://github.com/awslabs/serverless-image-resizing and modified to ac
 
 3. Publish your lambda function
 
-# Testing and development
+## Testing and development
 
 To try out the lambda function locally, just run `node test.js` and navigate to `http://localhost:3000/:size/:fileName` where FileName is the name of a file hosted on your S3 bucket
