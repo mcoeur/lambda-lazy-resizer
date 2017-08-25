@@ -1,6 +1,6 @@
 # Lambda lazy resizer
 
-This lambda function resizes images stored on an AWS S3 on-the-fly then redirects to the resized image.
+This lambda function resizes images stored on an AWS S3 bucket on-the-fly then redirects to the resized image.
 
 Use in combination with AWS API Gateway (and S3 Conditional Redirects).
 
