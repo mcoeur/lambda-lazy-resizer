@@ -16,7 +16,7 @@ Based on https://github.com/awslabs/serverless-image-resizing and modified to ac
 | Key | Value | Exemple |
 |---|---|---|
 | BUCKET | String | my-aws-s3-bucket |
-| WHITELISTED_SIZED | String - Separated with the character \| | 800x600\|400\|x300 |
+| WHITELISTED_SIZES | String - Separated with the character \| | 800x600\|400\|x300 |
 | WHITELISTED_FORMATS| String - Separated with the character \| | jpeg\|png |
 | URL | String - Url to redirect to when the image is resized| http://my-amazon-s3-bucket-link.com |
 
