@@ -1,0 +1,17 @@
+{
+  "name": "aws-resize",
+  "version": "1.0.0",
+  "description": "Serverless image resizing",
+  "readme": "Serverless image resizing",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "dependencies": {
+    "mime-types": "^2.1.16",
+    "sharp": "^0.17.3"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.36.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4"
+  }
+}
